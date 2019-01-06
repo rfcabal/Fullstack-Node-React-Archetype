@@ -4,9 +4,9 @@
   "description": "Full Stack App for MiResumen Porject",
   "main": "index.js",
   "scripts": {
-    "start-dev": "nodemon index.js",
-    "start": "webpack-dev-server --mode development --open",
-    "build": "webpack --mode production"
+    "start-dev-back": "nodemon index.js",
+    "start-dev-front": "webpack-dev-server --mode development --open",
+    "build-pro": "webpack --mode production"
   },
   "repository": {
     "type": "git",
