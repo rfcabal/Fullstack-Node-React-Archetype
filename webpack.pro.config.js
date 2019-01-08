@@ -1,18 +1,25 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const path = require('path')
+const OptimiceCSSPlugin = require('optimice-css-assets-webpack-plugin');
 
 const htmlWebpackPlugin = new HtmlWebPackPlugin({
     template: "./index.html",
-    filename: "./index.html"
+    minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeAttributeQuotes: true
+    }
 });
 
-module.exports = {
+const config = {
     context: __dirname + "/www",
     entry: __dirname + "/www/index.js",
     output: {
         path: __dirname + '/dist',
         filename: 'js/[name].js'
+    },
+    devServer: {
+        port: 9000
     },
     module: {
         rules:  [
@@ -51,10 +58,14 @@ module.exports = {
                         name: 'images/[name].[hash].[ext]',
                     }
                 }
-            },
+            }
+        ],
+        plugins: [
+            htmlWebpackPlugin,
+            new OptimiceCSSPlugin()
         ]
-    },
-    plugins: [htmlWebpackPlugin]
+    }
 };
 
+module.exports = config;
 
