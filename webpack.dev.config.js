@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+// const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const htmlWebpackPlugin = new HtmlWebPackPlugin({
     template: "./index.html",
@@ -11,7 +11,7 @@ const config = {
     context: __dirname + "/www",
     entry: __dirname + "/www/index.js",
     output: {
-        path: __dirname + '/dist',
+        path: __dirname + '/www/dist',
         filename: 'js/[name].js'
     },
     devServer: {
