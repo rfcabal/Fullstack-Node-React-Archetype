@@ -1,7 +1,7 @@
 {
-  "name": "miresumenapp",
+  "name": "react-node",
   "version": "1.0.0",
-  "description": "Full Stack App for MiResumen Porject",
+  "description": "Fullstack node-react archetype",
   "main": "index.js",
   "scripts": {
     "start-dev-back": "nodemon index.js",
