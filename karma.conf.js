@@ -14,6 +14,7 @@ module.exports = (config) => {
             // all files ending in "_test"
             { pattern: 'test/*_test.js', watched: false },
             { pattern: 'test/**/*_test.js', watched: false },
+            { pattern: '*.spec.js', watched: false },
             { pattern: 'www/*.spec.js', watched: false },
             { pattern: 'www/**/*.spec.js', watched: false }
             // each file acts as entry point for the webpack configuration
@@ -22,6 +23,7 @@ module.exports = (config) => {
             // add webpack as preprocessor
             'test/*_test.js': [ 'webpack' ],
             'test/**/*_test.js': [ 'webpack' ],
+            '*.spec.js': [ 'webpack' ],
             'www/*.spec.js': [ 'webpack' ],
             'www/**/*.spec.js': [ 'webpack' ]
         },
