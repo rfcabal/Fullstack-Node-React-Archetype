@@ -9,7 +9,7 @@ const htmlWebpackPlugin = new HtmlWebPackPlugin({
 
 const config = {
     context: __dirname + "/www",
-    entry: __dirname + "/www/index.js",
+    entry: ['@babel/polyfill', __dirname + "/www/index.js"],
     output: {
         path: __dirname + '/www/dist',
         filename: 'js/[name].js'
@@ -20,8 +20,6 @@ const config = {
     module: {
         rules:  [
             {
-                // test: que tipo de archivo quiero reconocer,
-                // use: que loader se va a encargar del archivo
                 test: /\.(js|jsx)$/,
                 exclude: /(node_modules)/,
                 use: {

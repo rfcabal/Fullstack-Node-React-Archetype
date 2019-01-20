@@ -17,3 +17,8 @@
     <li>Build Pro: <code>npm runb build:pro</code></li>
     <li>Run Test: <code>npm run test</code></li>
 </ul>
+
+<h2>Working on</h2>
+
+- [ ] More features
+

@@ -71,7 +71,7 @@ const config = () => {
             htmlWebpackPlugin,
             new OptimizeCSSPlugin(),
             new CleanWebpackPlugin(['dist'], {root: __dirname + '/www/'})
-            //new ExtractTextPlugin("css/[name].[hash].css")
+            //new ExtractTextPlugin("css/[name].[hash].css"),
         ]
     }
 };
