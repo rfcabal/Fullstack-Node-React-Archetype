@@ -1,7 +1,8 @@
 node_modules
 .idea
 package-lock.json
-.idea/vcs.xml
+yarn.lock
 www/node_modules
 www/yarn.lock
 www/dist
+*.log

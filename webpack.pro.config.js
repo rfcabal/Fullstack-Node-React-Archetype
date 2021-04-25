@@ -17,7 +17,7 @@ const config = () => {
 
     return {
         context: __dirname + "/www",
-        entry: __dirname + "/www/index.js",
+        entry: __dirname + "/www/index.tsx",
         output: {
             path: path.resolve(__dirname + '/www/', 'dist'),
             filename: 'js/[name].[hash].js',
@@ -29,6 +29,11 @@ const config = () => {
         },
         module: {
             rules:  [
+                {
+                    test: /\.tsx?$/,
+                    use: 'ts-loader',
+                    exclude: /node_modules/,
+                },
                 {
                     // test: que tipo de archivo quiero reconocer,
                     // use: que loader se va a encargar del archivo
@@ -66,6 +71,9 @@ const config = () => {
                     }
                 }
             ]
+        },
+        resolve: {
+            extensions: ['.tsx', '.ts', '.js'],
         },
         plugins: [
             htmlWebpackPlugin,

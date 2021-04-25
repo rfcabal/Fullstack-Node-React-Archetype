@@ -1,17 +1,20 @@
 const webpack = require('webpack');
+const path = require('path');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-// const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+const DIST_DIR = path.resolve(__dirname,'www/dist');
+const SRC_DIR = path.resolve(__dirname,'www');
 
 const htmlWebpackPlugin = new HtmlWebPackPlugin({
-    template: "./index.html",
-
+    template: "./www/public/index.html",
 });
 
 const config = {
-    context: __dirname + "/www",
-    entry: ['@babel/polyfill', __dirname + "/www/index.js"],
+    mode: "development",
+    devtool: 'inline-source-map',
+    entry: [ SRC_DIR + '/index.tsx'],
     output: {
-        path: __dirname + '/www/dist',
+        path: DIST_DIR,
         filename: 'js/[name].js'
     },
     devServer: {
@@ -20,14 +23,9 @@ const config = {
     module: {
         rules:  [
             {
-                test: /\.(js|jsx)$/,
-                exclude: /(node_modules)/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['es2015', 'react', 'stage-2'],
-                    }
-                },
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
             },
             {
                 test: /\.css$/,
@@ -43,10 +41,12 @@ const config = {
                         name: 'images/[name].[hash].[ext]',
                     }
                 }
-            }
+            },
         ]
     },
-    devtool: 'cheap-eval-source-map',
+    resolve: {
+        extensions: [".ts", ".tsx", ".js", ".jsx"]
+    },
     plugins: [
         htmlWebpackPlugin,
         new webpack.DefinePlugin({

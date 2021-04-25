@@ -1,6 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import ReactTestUtils from 'react-dom/test-utils';
+import { render, fireEvent, waitForElement } from "@testing-library/react";
 
 describe("Main control testing", function () {
 

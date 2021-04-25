@@ -1,13 +1,12 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM, { render } from "react-dom";
+import * as _ from 'lodash'
 
 const container = document.getElementById("app");
-const App = () => {
-  return(
-    <div>
+const App = () => (
+  <div>
       TEST COMPONENT
-    </div>
-  );
-};
+  </div>
+)
 
 ReactDOM.render(<App/>, container);
