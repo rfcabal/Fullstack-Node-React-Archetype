@@ -32,17 +32,9 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-// Important to config
-// app.use(express.static(path.join(__dirname, 'public')));
 
 // routes setup
 app.use('/', routes)
-
-// catch 404 and forward to error handler
-app.use((req, res, next) =>{
-    // Falta definir crear error ??
-    next(createError(404));
-});
 
 // error handler
 app.use((err, req, res, next) =>{
@@ -58,7 +50,7 @@ app.use((err, req, res, next) =>{
 console.info("Initializing Server");
 
 function initExpress () {
-    app.listen(3020, () => {
+    app.listen(9000, () => {
         console.info("Server is Running");
         process.on("SIGINT", closeApp);
         process.on("SIGTERM", closeApp);
