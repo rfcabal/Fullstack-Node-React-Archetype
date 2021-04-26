@@ -18,7 +18,7 @@ const config = {
         filename: 'js/[name].js'
     },
     devServer: {
-      port: 9000
+      port: 3000
     },
     module: {
         rules:  [
