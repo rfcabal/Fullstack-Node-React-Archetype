@@ -2,21 +2,21 @@ const webpack = require('webpack');
 const path = require('path');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 
-const DIST_DIR = path.resolve(__dirname,'www/dist');
 const SRC_DIR = path.resolve(__dirname,'www');
-
 const htmlWebpackPlugin = new HtmlWebPackPlugin({
-    template: "./www/public/index.html",
+    template: "./public/index.html",
+    minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeAttributeQuotes: true
+    }
 });
 
 const config = {
     mode: "development",
     devtool: 'inline-source-map',
-    entry: [ SRC_DIR + '/index.tsx'],
-    output: {
-        path: DIST_DIR,
-        filename: 'js/[name].js'
-    },
+    context: SRC_DIR,
+    entry: [ SRC_DIR + '/src/index.tsx'],
     devServer: {
       port: 3000
     },

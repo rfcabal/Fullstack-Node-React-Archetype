@@ -1,11 +1,13 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const path = require('path');
 
+const SRC_DIR = path.resolve(__dirname,'www');
+const DIST_DIR = path.resolve(__dirname,'www/dist');
 const htmlWebpackPlugin = new HtmlWebPackPlugin({
-    template: "./index.html",
+    template: "./public/index.html",
     minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -16,16 +18,14 @@ const htmlWebpackPlugin = new HtmlWebPackPlugin({
 const config = () => {
 
     return {
-        context: __dirname + "/www",
-        entry: __dirname + "/www/index.tsx",
+        mode: "production",
+        context: SRC_DIR,
+        entry: SRC_DIR + "/src/index.tsx",
         output: {
-            path: path.resolve(__dirname + '/www/', 'dist'),
+            path: DIST_DIR,
             filename: 'js/[name].[hash].js',
-            publicPath:  path.resolve(__dirname + '/www/', 'dist') + '/',
+            publicPath:  DIST_DIR + '/',
             chunkFilename: 'js/[id].[chunkhash].js',
-        },
-        devServer: {
-            port: 9000
         },
         module: {
             rules:  [
@@ -78,8 +78,7 @@ const config = () => {
         plugins: [
             htmlWebpackPlugin,
             new OptimizeCSSPlugin(),
-            new CleanWebpackPlugin(['dist'], {root: __dirname + '/www/'})
-            //new ExtractTextPlugin("css/[name].[hash].css"),
+            new CleanWebpackPlugin()
         ]
     }
 };

@@ -4,17 +4,15 @@
   "description": "Fullstack node-react archetype",
   "main": "index.js",
   "scripts": {
-    "start-dev-back": "nodemon index.js --env.NODE_ENV=development",
-    "start-dev-front": "webpack serve --config ./webpack.dev.config.js --mode development --open",
-    "start-dev": "yarn start-dev-back && start-dev-front",
+    "start:back": "nodemon index.js --env.NODE_ENV=development",
+    "start:front": "webpack serve --config ./webpack.dev.config.js --mode development --open",
     "test": "jest",
     "test:watch": "jest --watch",
-    "build:dev": "webpack --config ./webpack.dev.config.js",
     "build:pro": "webpack --config ./webpack.pro.config.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rfcabal/MiResumenApp.git"
+    "url": "git+https://github.com/rfcabal/Fullstack-Node-React-Archetype.git"
   },
   "keywords": [
     "miresumen",
@@ -26,9 +24,9 @@
   "author": "Ricardo Flores",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rfcabal/MiResumenApp/issues"
+    "url": "https://github.com/rfcabal/Fullstack-Node-React-Archetype/issues"
   },
-  "homepage": "https://github.com/rfcabal/MiResumenApp#readme",
+  "homepage": "https://github.com/rfcabal/Fullstack-Node-React-Archetype#readme",
   "devDependencies": {
     "@babel/polyfill": "^7.12.1",
     "@types/lodash": "^4.14.168",
