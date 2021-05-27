@@ -1,6 +1,6 @@
 {
   "name": "react-node",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Fullstack node-react archetype",
   "main": "index.js",
   "scripts": {
@@ -15,11 +15,8 @@
     "url": "git+https://github.com/rfcabal/Fullstack-Node-React-Archetype.git"
   },
   "keywords": [
-    "miresumen",
-    "cv",
     "node",
-    "react",
-    "chile"
+    "react"
   ],
   "author": "Ricardo Flores",
   "license": "MIT",
